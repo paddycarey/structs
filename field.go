@@ -19,6 +19,16 @@ type Field struct {
 	defaultTag string
 }
 
+// RawValue returns the underlying reflect.Value associated with the Field
+func (f *Field) RawValue() reflect.Value {
+	return f.value
+}
+
+// RawField returns the underlying reflect.StructField associated with the Field
+func (f *Field) RawField() reflect.StructField {
+	return f.field
+}
+
 // Tag returns the value associated with key in the tag string. If there is no
 // such key in the tag, Tag returns the empty string.
 func (f *Field) Tag(key string) string {
